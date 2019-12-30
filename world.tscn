@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Killer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://obj.tscn" type="PackedScene" id=4]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+collision/safe_margin = 0.15
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Area2D3" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 2667.75, 352.833 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1164.96, 349.612 )
+rotation = 1.0472
+scale = Vector2( 1, 5 )
+
+[node name="StaticBody2D2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1482.52, 246.254 )
+rotation = 1.0472
+scale = Vector2( 1, 5 )
+
+[node name="StaticBody2D3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1786.12, 161.718 )
+rotation = 1.0472
+scale = Vector2( 1, 5 )
+
+[node name="StaticBody2D4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2065.45, 152.162 )
+rotation = 1.80816
+scale = Vector2( 1, 5 )
+
+[node name="StaticBody2D5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2065.45, 152.162 )
+rotation = 1.80816
+scale = Vector2( 1, 5 )
+
+[node name="Ground2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3060.35, 424.676 )
+scale = Vector2( 100, 1 )
+
+[node name="Ground4" parent="." instance=ExtResource( 3 )]
+position = Vector2( -370.129, 455.034 )
+scale = Vector2( 100, 1 )
+
+[node name="Ground3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8986.86, 479.176 )
+scale = Vector2( 100, 1 )
+
+[node name="Object" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3350.79, 345.325 )
+[connection signal="body_entered" from="Enemies/Area2D3" to="Player" method="_on_Area2D_body_entered"]
